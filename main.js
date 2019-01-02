@@ -39,12 +39,12 @@ const context = {
   ]
 };
 
-const templateElement = document.getElementById("templateHB");
-const templateSource = templateElement.innerHTML;
-const template = Handlebars.compile(templateSource); 
-const compiledHtml = template(context);
+const templateElement = document.getElementById("templateHB");      //this gets a copy of the template from the <script> in the html <head>
+const templateSource = templateElement.innerHTML;                   //this zeros in on the {{replacable}} Handlebar elements in the template script
+const template = Handlebars.compile(templateSource);                //this tells the Handlebars compiler to compile its data and put the compiled data into the template
+const compiledHtml = template(context);                             //this takes the data from the context object (above) and passes it into the Handlebars.compile method
 
-document.getElementById('information').innerHTML = compiledHtml;
+document.getElementById('information').innerHTML = compiledHtml;    //this finally injects the handlebars.js template data into the html in the <body>
 
 
 
